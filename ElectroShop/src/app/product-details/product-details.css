@@ -1,0 +1,65 @@
+h2 {
+  text-align: center;
+  color: #722f37;
+  margin: 25px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 25px;
+  background-color: #f8f2f3;
+}
+
+img {
+  width: 250px;
+  height: 220px;
+  object-fit: contain;
+}
+
+.information {
+  width: 250px;
+}
+
+.edit {
+  width: 250px;
+}
+
+h3 {
+  color: #722f37;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input:not([type="checkbox"]) {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+button {
+  background-color: #722f37;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}

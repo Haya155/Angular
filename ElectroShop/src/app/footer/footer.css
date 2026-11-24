@@ -1,0 +1,16 @@
+footer {
+  background-color: #722f37;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 30px;
+}
+
+p {
+  margin: 10px;
+}
+
+hr {
+  width: 80%;
+  border: 1px solid #a66b72;
+}
