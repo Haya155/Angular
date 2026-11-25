@@ -1,0 +1,26 @@
+.cart {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: white;
+}
+
+.cart h2 {
+  color: #722f37;
+  border-bottom: 2px solid #722f37;
+  padding-bottom: 10px;
+}
+
+.cart p {
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.cart h3 {
+  color: #722f37;
+  background-color: #f5eeee;
+  padding: 15px;
+  border-radius: 8px;
+}

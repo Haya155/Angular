@@ -81,12 +81,26 @@
 </div>
 -->
 
+<!--
 <app-header></app-header>
-
 <app-navbar></app-navbar>
-
 <app-product-list></app-product-list>
-
-<app-product-details></app-product-details>
-
 <app-footer></app-footer>
+-->
+<button (click)="showLaptop()">Laptop</button>
+
+<button (click)="showHeadphones()">Headphones</button>
+<app-product-details
+  [productName]="productName()"
+  [productDescription]="productDescription()"
+  [productPrice]="productPrice()"
+  [isAvailable]="isAvailable()"
+  [productImage]="productImage()"
+  (cartAdded)="receiveCart($event)">
+</app-product-details>
+
+<app-shopping-cart
+  [productName]="cartName"
+  [productPrice]="cartPrice"
+  [quantity]="cartQuantity">
+</app-shopping-cart>

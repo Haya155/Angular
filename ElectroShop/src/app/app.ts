@@ -8,9 +8,41 @@ import { Component, signal } from '@angular/core';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('ElectroShop');
+ productName = signal("Laptop");
+productDescription = signal("Dell Laptop, Core i7, 16GB RAM");
+productPrice = signal(850);
+isAvailable = signal(true);
+productImage=signal("images/OIP.webp");
 
-  storeName: string = "ElectroShop";
+
+
+cartName: string = "";
+cartPrice: number = 0;
+cartQuantity: number = 0;
+
+
+receiveCart(data: { name: string; quantity: number }): void {
+  this.cartName = data.name;
+  this.cartQuantity = data.quantity;
+  this.cartPrice = this.productPrice();
+}
+showLaptop(): void {
+  this.productName.set("Laptop");
+  this.productDescription.set("Dell Laptop, Core i7, 16GB RAM");
+  this.productPrice.set(850);
+  this.isAvailable.set(true);
+this.productImage.set("images/OIP.webp");
+
+}
+
+showHeadphones(): void {
+  this.productName.set("Wireless Headphones");
+  this.productDescription.set("Bluetooth Headphones");
+  this.productPrice.set(120);
+  this.isAvailable.set(true);
+  this.productImage.set("images/71NlbTSqHbL._AC_.jpg");
+}
+  /*storeName: string = "ElectroShop";
   storeDescription: string = "Your favorite electronics store";
   storeAddress: string = "Amman, Jordan";
   totalProducts: number = 12;
@@ -74,5 +106,5 @@ export class App {
 
       this.totalValue += this.productPrices[i];
     }
-  }
+  }*/
 }

@@ -1,32 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, signal, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product-details',
-  standalone: false,
+  standalone: true,
   styleUrl: './product-details.css',
   templateUrl: './product-details.html',
 })
 export class ProductDetails {
-   productName: string = "Laptop";
-  productDescription: string = "High-performance laptop";
-  productPrice: number = 750;
-  productImage: string ="images/OIP.webp";
-  quantity: number = 1;
-  isAvailable: boolean = true;
-  discountPercentage: number = 10;
+
+  @Input() productName: string = "";
+  @Input() productDescription: string = "";
+  @Input() productPrice: number = 0;
+  @Input() isAvailable: boolean = false;
+@Input() productImage: string = "";
+  @Output() cartAdded = new EventEmitter<{
+    name: string;
+    quantity: number;
+  }>();
+
+
+  quantity = signal(1);
 
   increaseQuantity(): void {
-    this.quantity++;
+    this.quantity.update(value => value + 1);
   }
 
   decreaseQuantity(): void {
-    if (this.quantity > 1) {
-      this.quantity--;
+    if (this.quantity() > 1) {
+      this.quantity.update(value => value - 1);
     }
   }
 
-  calculateTotal(): number {
-    return this.productPrice * this.quantity *
-           (1 - this.discountPercentage / 100);
+  addToCart(): void {
+    this.cartAdded.emit({
+      name: this.productName,
+      quantity: this.quantity()
+    });
   }
+
 }

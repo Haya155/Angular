@@ -8,13 +8,25 @@ import { ProductList } from './product-list/product-list';
 import { ProductDetails } from './product-details/product-details';
 import { Footer } from './footer/footer';
 import { FormsModule } from '@angular/forms';
+import { ShoppingCart } from './shopping-cart/shopping-cart';
+
 
 @NgModule({
-  declarations: [App, Header, Navbar, ProductList, ProductDetails, Footer],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [provideBrowserGlobalErrorListeners(), provideClientHydration()],
-  bootstrap: [App],
+  declarations: [
+    App,
+    Header,
+    Navbar,
+    ProductList,
+    Footer
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ProductDetails,
+    ShoppingCart
+  ],
+  providers: [],
+  bootstrap: [App]
 })
-export class AppModule {
- 
-}
+export class AppModule { }
