@@ -1,4 +1,5 @@
-<!--
+<!-- Day 1
+
 <div class="container">
 
   <header>
@@ -79,22 +80,26 @@
   </section>
 
 </div>
+
 -->
 
-<!--
+
+<!-- Day 2
+
 <app-header></app-header>
 <app-navbar></app-navbar>
 <app-product-list></app-product-list>
 <app-footer></app-footer>
+
 -->
 
 
+<!-- Day 3
 
-
-<!--
 <button (click)="showLaptop()">Laptop</button>
 
 <button (click)="showHeadphones()">Headphones</button>
+
 <app-product-details
   [productName]="productName()"
   [productDescription]="productDescription()"
@@ -109,7 +114,79 @@
   [productPrice]="cartPrice"
   [quantity]="cartQuantity">
 </app-shopping-cart>
+
 -->
 
 
+<!-- Day 4 - First Example
+
+<h1>{{ storeName }}</h1>
+
+@if (isStoreOpen) {
+  <p>Store is Open</p>
+} @else {
+  <p>Store is Closed</p>
+}
+
+<button (click)="selectPage('Home')">
+  Home
+</button>
+
+<button (click)="selectPage('Products')">
+  Products
+</button>
+
+@switch (selectedPage) {
+
+  @case ("Home") {
+
+    <h2>Welcome to ElectroShop</h2>
+
+  }
+
+  @case ("Products") {
+
+    @for (product of products; track product.id) {
+
+      <div class="product"
+        [ngClass]="{
+          'available': product.isAvailable,
+          'unavailable': !product.isAvailable
+        }">
+
+        <h3>{{ product.name }}</h3>
+
+        <p [ngStyle]="{
+          'color': product.price > 500 ? 'red' : 'green'
+        }">
+
+          Price: ${{ product.price }}
+
+        </p>
+
+        @if (product.isAvailable) {
+          <button>Buy Now</button>
+        } @else {
+          <p>Out of Stock</p>
+        }
+
+      </div>
+
+    } @empty {
+
+      <p>No Products Found</p>
+
+    }
+
+  }
+
+  @default {
+    <p>Page Not Found</p>
+  }
+
+}
+
 <app-directives-demo></app-directives-demo>
+-->
+
+<app-product-list></app-product-list>

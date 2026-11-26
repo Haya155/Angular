@@ -1,4 +1,4 @@
-
+/*
 * {
   box-sizing: border-box;
 }
@@ -155,4 +155,27 @@ section h2 {
   .prices {
     flex-wrap: wrap;
   }
+}
+*/.product {
+  padding: 20px;
+  margin: 15px;
+  border-radius: 10px;
+}
+
+.available {
+  background-color: #f0fff4;
+  border: 1px solid green;
+}
+
+.unavailable {
+  background-color: #fff0f0;
+  border: 1px solid red;
+}
+
+button {
+  background-color: #722f37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
 }
