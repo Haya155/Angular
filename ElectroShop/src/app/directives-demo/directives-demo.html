@@ -1,0 +1,123 @@
+<header>
+  <h1>{{ storeName }}</h1>
+
+  @if (isStoreOpen) {
+    <p>Store is Open</p>
+  } @else {
+    <p>Store is Closed</p>
+  }
+
+  <button (click)="changeStoreStatus()">
+    Change Store Status
+  </button>
+</header>
+
+<nav>
+
+  <button
+    [ngClass]="{'active': selectedPage === 'Home'}"
+    (click)="selectPage('Home')">
+    Home
+  </button>
+
+  <button
+    [ngClass]="{'active': selectedPage === 'Products'}"
+    (click)="selectPage('Products')">
+    Products
+  </button>
+
+  <button
+    [ngClass]="{'active': selectedPage === 'Contact'}"
+    (click)="selectPage('Contact')">
+    Contact
+  </button>
+
+</nav>
+
+<main>
+
+  @switch (selectedPage) {
+
+    @case ("Home") {
+
+      <h2>Welcome to ElectroShop</h2>
+      <p>Everything You Need in One Place</p>
+
+    }
+
+    @case ("Products") {
+
+      <h2>Our Products</h2>
+
+      <div class="products">
+
+        @for (product of products; track product.id) {
+
+          <div class="product"
+            [ngClass]="{
+              'available': product.isAvailable,
+              'unavailable': !product.isAvailable
+            }">
+
+            <h3>{{ product.name }}</h3>
+
+            <p [ngStyle]="{
+              'color': product.price > 500 ? 'red' : 'green',
+              'font-weight': 'bold'
+            }">
+
+              Price: ${{ product.price }}
+
+            </p>
+
+            @if (product.isAvailable) {
+
+              <p>In Stock</p>
+
+              <button [disabled]="!isStoreOpen">
+                Buy Now
+              </button>
+
+            } @else {
+
+              <p>Out of Stock</p>
+
+            }
+
+            <button (click)="changeAvailability(product.id)">
+              Change Availability
+            </button>
+
+          </div>
+
+        } @empty {
+
+          <p>No Products Found</p>
+
+        }
+
+      </div>
+
+    }
+
+    @case ("Contact") {
+
+      <h2>Contact Us</h2>
+      <p>Amman, Jordan</p>
+      <p>ElectroShop Store</p>
+
+    }
+
+    @default {
+
+      <p>Page Not Found</p>
+
+    }
+
+  }
+
+</main>
+
+<footer>
+  <p>2026 ElectroShop - All Rights Reserved</p>
+</footer>
